@@ -1,5 +1,6 @@
 import { Separator } from '@heroui/react'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { CiStar } from 'react-icons/ci'
 
@@ -26,7 +27,9 @@ const ProductCard = ({product}) => {
         <span>${product.price}</span>
     </div>
     <div className="card-action">
+      <Link href={`/products/${product.id}`}>
       <button className='btn w-full rounded-full bg-orange-500 text-white'>View Details</button>
+      </Link>
     </div>
   </div>
 </div>
