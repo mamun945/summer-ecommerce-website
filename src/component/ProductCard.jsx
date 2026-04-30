@@ -1,3 +1,4 @@
+import { Separator } from '@heroui/react'
 import Image from 'next/image'
 import React from 'react'
 import { CiStar } from 'react-icons/ci'
@@ -11,21 +12,21 @@ const ProductCard = ({product}) => {
      alt='product'
      height={200}
      width={300}
-     className='object-cover h-[200px] w-full'
+     className=' h-[200px] w-full object-cover rounded-sm'
      ></Image>    
-  <div className="absolute  badge badge-outline">{product.category}</div>
+  <div className="absolute  badge text-xs bg-orange-200 text-black top-2 right-2">{product.category}</div>
   </figure>
-  <div className="card-body">
-    <h2 className="card-title">
+  <div className="card-body space-y-2">
+    <h2 className="card-title text-semibold">
       {product.name}
-      <div className="badge badge-secondary">{product.brand}</div>
     </h2>
-    <div>
-        <p><CiStar className="text-orange-500"/> {product.rating}</p>
-        <p>${product.price}</p>
+    <div className='flex items-center gap-5'>
+        <span className='flex items-center'><CiStar className="text-orange-500"/> {product.rating}</span>
+        <Separator orientation='vertical'></Separator>
+        <span>${product.price}</span>
     </div>
     <div className="card-action">
-      <button className='btn'>View Details</button>
+      <button className='btn w-full rounded-full bg-orange-500 text-white'>View Details</button>
     </div>
   </div>
 </div>
