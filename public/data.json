@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV protection sunglasses perfect for hot sunny days.",
+    "image": "https://images.unsplash.com/photo-1625591340248-6d289000f96a",
+    "category": "Summer Essentials"
+  },
+  {
+    "id": 2,
+    "name": "Portable Handheld Fan",
+    "brand": "CoolBreeze",
+    "price": 12,
+    "rating": 4.5,
+    "stock": 25,
+    "description": "Rechargeable mini fan to keep you cool anywhere.",
+    "image": "https://images.unsplash.com/photo-1665298455913-dd43714f5ad1?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Summer Essentials"
+  },
+  {
+    "id": 3,
+    "name": "Cooling Towel",
+    "brand": "ChillWrap",
+    "price": 8,
+    "rating": 4.6,
+    "stock": 40,
+    "description": "Instant cooling towel for sports and outdoor activities.",
+    "image": "https://down-sg.img.susercontent.com/file/tw-11134201-7qukx-leo7p9f2eib568",
+    "category": "Summer Essentials"
+  },
+  {
+    "id": 4,
+    "name": "Beach Flip Flops",
+    "brand": "SeaWalk",
+    "price": 10,
+    "rating": 4.4,
+    "stock": 35,
+    "description": "Comfortable lightweight flip flops for beach and casual wear.",
+    "image": "https://images.unsplash.com/photo-1659963970293-b12cfeb286c5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZmxpcCUyMGZsb3BzfGVufDB8fDB8fHww",
+    "category": "Footwear"
+  },
+  {
+    "id": 5,
+    "name": "Insulated Water Bottle",
+    "brand": "HydraCool",
+    "price": 14,
+    "rating": 4.8,
+    "stock": 50,
+    "description": "Keeps water cold for hours during hot summer days.",
+    "image": "https://images.unsplash.com/photo-1625708458528-802ec79b1ed8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2F0ZXIlMjBib3R0bGV8ZW58MHx8MHx8fDA%3D",
+    "category": "Summer Essentials"
+  },
+  {
+    "id": 6,
+    "name": "Straw Sun Hat",
+    "brand": "SunnyWear",
+    "price": 11,
+    "rating": 4.5,
+    "stock": 20,
+    "description": "Breathable straw hat for sun protection and style.",
+    "image": "https://images.unsplash.com/photo-1657615702887-2c3071edcee6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3RyYXclMjBoYXR8ZW58MHx8MHx8fDA%3D",
+    "category": "Accessories"
+  },
+  {
+    "id": 7,
+    "name": "Beach Towel Large",
+    "brand": "WaveDry",
+    "price": 18,
+    "rating": 4.6,
+    "stock": 30,
+    "description": "Soft oversized towel perfect for beach or pool use.",
+    "image": "https://images.unsplash.com/photo-1625931046289-e51edea3e176?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmVhY2glMjB0b3dlbHxlbnwwfHwwfHx8MA%3D%3D",
+    "category": "Summer Essentials"
+  },
+  {
+    "id": 8,
+    "name": "Sunscreen Lotion SPF 50",
+    "brand": "SkinGuard",
+    "price": 20,
+    "rating": 4.9,
+    "stock": 45,
+    "description": "Strong UV protection sunscreen for all skin types.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvZhunZIbO2TJCx3SCs_E21d-xO1GdGuFLzA&s",
+    "category": "Skincare"
+  },
+  {
+    "id": 9,
+    "name": "Inflatable Swimming Ring",
+    "brand": "AquaFun",
+    "price": 9,
+    "rating": 4.3,
+    "stock": 60,
+    "description": "Colorful swimming ring for pool and beach fun.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjGYAMyef7s5_lrjh83Pc3PipqMJODMsQF7w&s",
+    "category": "Summer Toys"
+  },
+  {
+    "id": 10,
+    "name": "Portable Mini Cooler Bag",
+    "brand": "ChillBox",
+    "price": 22,
+    "rating": 4.6,
+    "stock": 18,
+    "description": "Keeps drinks and food cold during outdoor trips.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShMGND4MUrhN2TGfaX7Z7KBWRKgYmDmNiVTA&s",
+    "category": "Summer Essentials"
+  },
+  {
+    "id": 11,
+    "name": "Anti-UV Umbrella",
+    "brand": "ShadeMax",
+    "price": 16,
+    "rating": 4.5,
+    "stock": 27,
+    "description": "Lightweight umbrella with strong UV protection coating.",
+    "image": "https://contents.mediadecathlon.com/p2931532/k$7244d0d30e0969a7d46d780af00ab96f/anti-uv-upf50-umbrella-125-cm-profiler-black-decathlon-8654664.jpg?f=768x0&format=auto",
+    "category": "Accessories"
+  },
+  {
+    "id": 12,
+    "name": "Ice Cube Tray Set",
+    "brand": "FreezeJoy",
+    "price": 6,
+    "rating": 4.4,
+    "stock": 70,
+    "description": "Easy-release ice cube trays for cold summer drinks.",
+    "image": "data:image/jpeg;base64,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",
+    "category": "Kitchen"
+  }
+]
