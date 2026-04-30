@@ -1,6 +1,7 @@
  'use client'
 import { authClient } from "@/lib/auth-client";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
+import { redirect } from "next/navigation";
 
 const SignUpPage = () => {
   const submit = async(e)=>{
@@ -15,10 +16,10 @@ const SignUpPage = () => {
         email:email, // required
         password:password, // required
         image:image,
-        callbackURL: "/",
     });
    if(!error){
     alert('signup successful!');
+    redirect('/signin');
    }
    if(error){
     alert(error.message)
