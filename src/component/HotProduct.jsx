@@ -4,7 +4,6 @@ import ProductCard from "./ProductCard";
 
 const HotProduct = async() => {
     const products = await getProducts();
-    console.log(products, 'products');
   return (
     <div className="my-4">
        <h1 className="text-xl font-bold text-center my-2">Hot Products 🔥</h1>

@@ -1,8 +1,14 @@
+"use client"
 import Link from 'next/link'
 import React from 'react'
 import NavLink from './NavLink'
+import { authClient } from '@/lib/auth-client'
+import { Avatar } from '@heroui/react'
 
 const Navbar = () => {
+  const {data:session, isPending, error} = authClient.useSession();
+  const user = session?.user;
+
     const links =<>
          <li><NavLink href={'/'}>Home</NavLink></li>
          <li><NavLink href={'/products'}>Products</NavLink></li>
@@ -29,7 +35,22 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-     <button className='btn bg-orange-500 text-white'>LogIn</button>
+     {
+      !user && <Link href={'/signin'}><button className='btn bg-orange-500 text-white'>SignIn</button></Link>
+     }
+     {
+      user && <div className='flex items-center gap-2'>
+        <Avatar>
+        <Avatar.Image 
+        alt={user.name} 
+        src={user.image} 
+        referrerPolicy='no-referrer'
+        />
+        <Avatar.Fallback>{user.name[0]}</Avatar.Fallback>
+      </Avatar>
+        <button className='btn bg-orange-500 text-white' onClick={async()=>await authClient.signOut()}>SignOut</button>
+      </div>
+     }
   </div>
 </div>
   )

@@ -2,6 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import { redirect } from "next/navigation";
+import { GrGoogle } from "react-icons/gr";
 
 const SignUpPage = () => {
   const submit = async(e)=>{
@@ -26,6 +27,12 @@ const SignUpPage = () => {
    }
    
   }
+
+  const googleSignIn=async()=>{
+        await authClient.signIn.social({
+            provider:"google"
+        })
+    }
   return (
     <div className='cotainer mx-auto shadow-md rounded-lg p-4 flex flex-col justify-center items-center'>
       <h1 className="text-xl font-bold text-center my-2">SignUp</h1>
@@ -97,7 +104,7 @@ const SignUpPage = () => {
       </div>
     </Form>
       <p className="text-center text-lg opacity-[50%]">or</p>
-       <button className="btn btn-outline bg-blue-400 text-white rounded-full">SignIn With Google</button>
+       <button className="btn btn-outline bg-blue-400 text-white rounded-full" onClick={googleSignIn}><GrGoogle/> SignIn With Google</button>
     </div>
   )
 }
