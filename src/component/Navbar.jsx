@@ -48,7 +48,7 @@ const Navbar = () => {
         />
         <Avatar.Fallback>{user.name[0]}</Avatar.Fallback>
       </Avatar>
-        <button className='btn bg-orange-500 text-white' onClick={async()=>await authClient.signOut()}>SignOut</button>
+        <button className='btn bg-orange-500 text-white' onClick={async()=>await authClient.signOut()}>SignOut+++s</button>
       </div>
      }
   </div>
