@@ -42,13 +42,13 @@ const Navbar = () => {
       user && <div className='flex items-center gap-2'>
         <Avatar>
         <Avatar.Image 
-        alt={user.name} 
-        src={user.image} 
+        alt={user?.name} 
+        src={user?.image} 
         referrerPolicy='no-referrer'
         />
-        <Avatar.Fallback>{user.name[0]}</Avatar.Fallback>
+        <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
       </Avatar>
-        <button className='btn bg-orange-500 text-white' onClick={async()=>await authClient.signOut()}>SignOut+++s</button>
+        <button className='btn bg-orange-500 text-white' onClick={async()=>await authClient.signOut()}>SignOut</button>
       </div>
      }
   </div>
