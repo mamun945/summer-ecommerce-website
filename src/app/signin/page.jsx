@@ -28,9 +28,9 @@ const SignInPage = () => {
         const x = localStorage.getItem('r')
        
         if(x){
-           console.log('result is', x);
+          //  console.log('result is', x);
           router.push(`/products/${x}`)
-          localStorage.removeItem(x)
+          localStorage.removeItem(r)
         }else{
           router.push('/');
         }
