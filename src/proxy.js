@@ -8,9 +8,10 @@ export async function proxy(request) {
 })
 
    if(!session){
-       const loginUrl = new URL('/signin', request.url)
-       const from = request.nextUrl.pathname || '/'
-        loginUrl.searchParams.set('from', from)  
+      const loginUrl = NextResponse.redirect(new URL('/signin', request.url))
+      //  const loginUrl = new URL('/signin', request.url)
+      //  const from = request.nextUrl.pathname || '/'
+      //   loginUrl.searchParams.set('from', from)  
      return NextResponse.redirect(loginUrl)        
    }
    return NextResponse.next();
