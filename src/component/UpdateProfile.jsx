@@ -1,7 +1,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import {Button, Input, Label, Modal, Surface, TextField} from "@heroui/react";
-import { BiUser } from "react-icons/bi";
+import { BiEdit, BiUser } from "react-icons/bi";
 
 const UpdateProfile = () => {
        const submit= async(e)=>{
@@ -15,7 +15,7 @@ const UpdateProfile = () => {
        }
   return (
      <Modal>
-      <Button variant="secondary">Update Profile</Button>
+      <Button variant="secondary"><BiEdit/> Update Profile</Button>
       <Modal.Backdrop>
         <Modal.Container placement="auto">
           <Modal.Dialog className="sm:max-w-md">

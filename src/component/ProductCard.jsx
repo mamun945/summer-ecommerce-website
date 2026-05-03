@@ -6,31 +6,47 @@ import { CiStar } from 'react-icons/ci'
 
 const ProductCard = ({product}) => {
   return (
-   <div className="card bg-base-100 shadow-sm border">
+   <div className="card bg-base-100 shadow-sm border border-orange-500 hover:bg-gray-200 flex flex-col hover:shadow-xl transition animate__fadeIn animate__zoomIn">
+  
   <figure className='relative'>
-     <Image
-     src={product.image}
-     alt='product'
-     height={200}
-     width={300}
-     className=' h-[200px] w-full object-cover rounded-sm'
-     ></Image>    
-  <div className="absolute  badge text-xs bg-orange-200 text-black top-2 right-2">{product.category}</div>
+    <Image
+      src={product.image}
+      alt='product'
+      height={200}
+      width={300}
+      className='h-[200px] w-full object-cover rounded-sm'
+    />
+    <div className="absolute badge text-xs bg-orange-200 text-black top-2 right-2">
+      {product.category}
+    </div>
   </figure>
-  <div className="card-body space-y-2">
-    <h2 className="card-title text-semibold">
-      {product.name}
-    </h2>
-    <div className='flex items-center gap-5'>
-        <span className='flex items-center'><CiStar className="text-orange-500"/> {product.rating}</span>
-        <Separator orientation='vertical'></Separator>
+
+  <div className="card-body flex flex-col flex-1 justify-between">
+    
+    {/* Top Content */}
+    <div className="space-y-2">
+      <h2 className="card-title font-bold text-xl">
+        {product.name}
+      </h2>
+
+      <div className='flex items-center gap-5'>
+        <span className='flex items-center'>
+          <CiStar className="text-orange-500"/> {product.rating}
+        </span>
+
+        <Separator orientation='vertical' />
+
         <span>${product.price}</span>
+      </div>
     </div>
-    <div className="card-action">
-      <Link href={`/products/${product.id}`}>
-      <button className='btn w-full rounded-full bg-orange-500 text-white'>View Details</button>
-      </Link>
-    </div>
+
+    {/* Bottom Button */}
+    <Link href={`/products/${product.id}`}>
+      <button className='btn w-full rounded-full bg-orange-500 text-white mt-4 hover:bg-black transition duration-300 animate__fadeIn'>
+        View Details
+      </button>
+    </Link>
+
   </div>
 </div>
   )

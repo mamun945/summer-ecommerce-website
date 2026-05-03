@@ -3,8 +3,15 @@ import { authClient } from "@/lib/auth-client";
 import {Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
 import { GrGoogle } from "react-icons/gr";
+import { useSearchParams, useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const SignInPage = () => {
+   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const from = searchParams.get("from") || "/";
+
     const submit=async(e)=>{
       e.preventDefault();
       const email = e.target.email.value;
@@ -14,14 +21,14 @@ const SignInPage = () => {
             email:email, // required
             password:password, // required
             rememberMe: true,
-            callbackURL:'/'
         });
 
         if(!error){
-         alert('login successfully!')
+         toast.success('login successfully!')
+          router.push(from);
         }
         if(error){
-         alert(error.message);
+         toast.error(error.message);
         }
     }
 
@@ -33,7 +40,8 @@ const SignInPage = () => {
   return (
      <div className='cotainer mx-auto shadow-md rounded-lg p-4 flex flex-col justify-center items-center'>
           <h1 className="text-xl font-bold text-center my-2">SignIn</h1>
-            <Form className="flex border md:w-96 flex-col gap-4 p-4 rounded-lg" onSubmit={submit}>
+            <div className="">
+              <Form className="flex border md:w-96 flex-col gap-4 p-4 rounded-lg" onSubmit={submit}>
     
           <TextField
             isRequired
@@ -77,9 +85,14 @@ const SignInPage = () => {
             <button type="submit" className="btn bg-orange-500 w-full rounded-full text-white">Login</button>
           </div>
         </Form>
-          <p>I don't have an account! <Link href={'/signup'} className="text-blue-500">SinUp</Link></p>
-          <p className="text-center text-lg opacity-[50%]">or</p>
-           <button className="btn btn-outline bg-blue-400 text-white rounded-full" onClick={googleSignIn}><GrGoogle/> SignIn With Google</button>
+          <p className="text-center my-2">I don't have an account <Link href={'/signup'} className="text-orange-500">SignUp</Link></p>
+          <div className="flex items-center gap-3 my-2">
+            <div className="flex-1 border-t border-gray-300" />
+            <span className="text-sm text-gray-500">or</span>
+            <div className="flex-1 border-t border-gray-300" />
+          </div>
+           <button className="btn btn-outline bg-blue-400 w-full text-white rounded-full" onClick={googleSignIn}><GrGoogle/> SignIn With Google</button>
+            </div>
         </div>
   )
 }

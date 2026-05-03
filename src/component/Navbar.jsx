@@ -1,11 +1,13 @@
 "use client"
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import NavLink from './NavLink'
 import { authClient } from '@/lib/auth-client'
 import { Avatar } from '@heroui/react'
+import ProfileModal from './ProfileModal'
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   const {data:session, isPending, error} = authClient.useSession();
   const user = session?.user;
 
@@ -36,20 +38,89 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
      {
-      !user && <Link href={'/signin'}><button className='btn bg-orange-500 text-white'>SignIn</button></Link>
+      !user && <div className='flex items-center gap-2'>
+        <Link href={'/signin'}><button className='btn bg-orange-500 text-white'>SignIn</button></Link>
+        <Link href={'/signup'}><button className='btn bg-orange-500 text-white'>SignUp</button></Link>
+      </div>
      }
      {
-      user && <div className='flex items-center gap-2'>
-        <Avatar>
+      user && <div className="relative">
+      {/* Avatar click */}
+      <div onClick={() => setOpen(!open)} className="cursor-pointer">
+          <Avatar>
         <Avatar.Image 
         alt={user?.name} 
         src={user?.image} 
         referrerPolicy='no-referrer'
         />
-        <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
-      </Avatar>
-        <button className='btn bg-orange-500 text-white' onClick={async()=>await authClient.signOut()}>SignOut</button>
+       <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
+    
+       </Avatar>
       </div>
+
+      {/* Modal */}
+      {open && (
+        <div className="absolute right-0 mt-3 w-64 bg-white shadow-xl rounded-xl p-4 z-50 border">
+
+          <div className="flex flex-col items-center gap-3">
+              <Avatar>
+            <Avatar.Image 
+            alt={user?.name} 
+            src={user?.image} 
+            referrerPolicy='no-referrer'
+            className="w-10 h-10 rounded-full"
+            />
+       <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
+        </Avatar>
+            <h2 className="font-semibold">{user?.name}</h2>
+
+            <button className="btn btn-sm w-full bg-orange-500 text-white" onClick={() => setOpen(!open)}>
+              <Link href={'/profile'} className='w-full'>View Profile</Link>
+            </button>
+
+            <button className="btn btn-sm w-full" onClick={async()=>await authClient.signOut()}>
+              <span className='w-full' onClick={() => setOpen(!open)}>SignOut</span>
+            </button>
+          </div>
+
+        </div>
+      )}
+    </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      // <div className='flex items-center gap-2'>
+      //   <div>
+      //   <ProfileModal>
+      //       <Avatar>
+      //   <Avatar.Image 
+      //   alt={user?.name} 
+      //   src={user?.image} 
+      //   referrerPolicy='no-referrer'
+      //   />
+      //   <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
+      // </Avatar>
+      //   </ProfileModal>
+      //   </div>
+        
+      //   <button className='btn bg-orange-500 text-white' onClick={async()=>await authClient.signOut()}>SignOut</button>
+      // </div>
      }
   </div>
 </div>
