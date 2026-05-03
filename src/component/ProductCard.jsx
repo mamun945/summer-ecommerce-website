@@ -1,7 +1,6 @@
 import { Separator } from '@heroui/react'
 import Image from 'next/image'
 import Link from 'next/link'
-
 import React from 'react'
 import { CiStar } from 'react-icons/ci'
 import ViewDetails from './viewDetails'
