@@ -24,11 +24,12 @@ const SignInPage = () => {
         });
 
         if(!error){
-         toast.success('login successfully!')
+         
         const x = localStorage.getItem('r')
        
         if(x){
           //  console.log('result is', x);
+          toast.success('login successfully!')
           router.push(`/products/${x}`)
           localStorage.removeItem(r)
         }else{
@@ -38,7 +39,7 @@ const SignInPage = () => {
           // router.push(from);
         
         }
-        if(error){
+        else{
          toast.error(error.message);
         }
     }
