@@ -5,12 +5,12 @@ import Link from "next/link";
 import { GrGoogle } from "react-icons/gr";
 import { useSearchParams, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { Suspense } from "react";
 
-const SignInPage = () => {
+const SignInForm = () => {
    const router = useRouter();
-  const searchParams = useSearchParams();
-
-  // const from = searchParams.get("from") || "/";
+   const searchParams = useSearchParams();
+   const callbackURL = searchParams.get("callbackURL") || "/";
 
     const submit=async(e)=>{
       e.preventDefault();
@@ -24,29 +24,22 @@ const SignInPage = () => {
         });
 
         if(!error){
-         
-        const x = localStorage.getItem('r')
-       
-        if(x){
-          //  console.log('result is', x);
-          toast.success('login successfully!')
-          router.push(`/products/${x}`)
-          localStorage.removeItem(r)
-        }else{
-          router.push('/');
+         toast.success('login successfully!')
+         router.push(callbackURL)
         }
-        
-          // router.push(from);
-        
-        }
-        else{
+        if(error){
          toast.error(error.message);
         }
     }
 
     const googleSignIn=async()=>{
+        let finalCallbackURL = callbackURL;
+        if (finalCallbackURL.startsWith("/")) {
+            finalCallbackURL = `${window.location.origin}${finalCallbackURL}`;
+        }
         await authClient.signIn.social({
-            provider:"google"
+            provider:"google",
+            callbackURL: finalCallbackURL
         })
     }
   return (
@@ -97,7 +90,7 @@ const SignInPage = () => {
             <button type="submit" className="btn bg-orange-500 w-full rounded-full text-white">Login</button>
           </div>
         </Form>
-          <p className="text-center my-2">I don't have an account <Link href={'/signup'} className="text-orange-500">SignUp</Link></p>
+          <p className="text-center my-2">I don't have an account <Link href={`/signup?callbackURL=${encodeURIComponent(callbackURL)}`} className="text-orange-500">SignUp</Link></p>
           <div className="flex items-center gap-3 my-2">
             <div className="flex-1 border-t border-gray-300" />
             <span className="text-sm text-gray-500">or</span>
@@ -106,6 +99,14 @@ const SignInPage = () => {
            <button className="btn btn-outline bg-blue-400 w-full text-white rounded-full" onClick={googleSignIn}><GrGoogle/> SignIn With Google</button>
             </div>
         </div>
+  )
+}
+
+const SignInPage = () => {
+  return (
+    <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading...</div>}>
+      <SignInForm />
+    </Suspense>
   )
 }
 
