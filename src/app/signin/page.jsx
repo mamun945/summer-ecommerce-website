@@ -26,7 +26,9 @@ const SignInPage = () => {
         if(!error){
          toast.success('login successfully!')
         const x = localStorage.getItem('r')
+       
         if(x){
+           console.log('result is', x);
           router.push(`/products/${x}`)
           localStorage.removeItem(x)
         }else{
