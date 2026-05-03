@@ -29,6 +29,9 @@ const ProductsDetailsPage= async({params}) => {
          <h2><span className="font-bold">Category:</span> {existProduct.category}</h2>
         <p><span className="font-bold">Price:</span> ${existProduct.price}</p>
         <p><span className="font-bold">Rating:</span> {existProduct.rating}</p>
+         <div>
+          <button className="btn bg-orange-500 hover:bg-black-500 transition duration-200">Buy Now</button>
+         </div>
       </div>
        </div>
     </Card>
