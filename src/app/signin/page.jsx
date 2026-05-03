@@ -25,7 +25,16 @@ const SignInPage = () => {
 
         if(!error){
          toast.success('login successfully!')
-          router.push(from);
+        const x = localStorage.getItem('r')
+        if(x){
+          router.push(`/products/${x}`)
+          localStorage.removeItem(x)
+        }else{
+          router.push('/');
+        }
+        
+          // router.push(from);
+        
         }
         if(error){
          toast.error(error.message);
