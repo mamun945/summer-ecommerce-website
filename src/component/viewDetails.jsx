@@ -7,7 +7,7 @@ const ViewDetails = ({product}) => {
      const router =useRouter()
   const  handleNavigate =(id)=>{
     router.push(`/products/${id}`)
-    localStorage.setItem('r', id)
+  
   }
   return (
     <div>
