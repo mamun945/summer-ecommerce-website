@@ -25,7 +25,9 @@ const SignInForm = () => {
 
         if(!error){
          toast.success('login successfully!')
-         router.push(callbackURL)
+        //  router.push(callbackURL)
+         window.location.href = callbackURL;
+       console.log(callbackURL);
         }
         if(error){
          toast.error(error.message);

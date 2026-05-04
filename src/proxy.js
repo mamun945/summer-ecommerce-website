@@ -10,11 +10,14 @@ export async function proxy(request) {
    if(!session){
        const loginUrl = new URL('/signin', request.url)
        const callbackURL = request.nextUrl.pathname || '/'
+       
        loginUrl.searchParams.set('callbackURL', callbackURL)  
        return NextResponse.redirect(loginUrl)        
    }
+   console.log(request.url);
    return NextResponse.next();
 }
+
  
 export const config = {
   matcher: ['/profile','/products/:path']
