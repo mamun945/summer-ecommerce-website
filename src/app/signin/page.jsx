@@ -25,9 +25,7 @@ const SignInForm = () => {
 
         if(!error){
          toast.success('login successfully!')
-        //  router.push(callbackURL)
          window.location.href = callbackURL;
-       console.log(callbackURL);
         }
         if(error){
          toast.error(error.message);
@@ -35,13 +33,13 @@ const SignInForm = () => {
     }
 
     const googleSignIn=async()=>{
-        let finalCallbackURL = callbackURL;
-        if (finalCallbackURL.startsWith("/")) {
-            finalCallbackURL = `${window.location.origin}${finalCallbackURL}`;
-        }
+        // let finalCallbackURL = callbackURL;
+        // if (finalCallbackURL.startsWith("/")) {
+        //     finalCallbackURL = `${window.location.origin}${finalCallbackURL}`;
+        // }
         await authClient.signIn.social({
             provider:"google",
-            callbackURL: finalCallbackURL
+            // callbackURL: finalCallbackURL
         })
     }
   return (
